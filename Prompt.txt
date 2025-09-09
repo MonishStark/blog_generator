@@ -1,0 +1,78 @@
+**Role:** You are an expert WordPress plugin developer specializing in integrating third-party APIs and creating intuitive user interfaces within the WordPress admin area.  
+
+**Project Goal:**  
+Develop a WordPress plugin named **"AI Content Architect"** that automates the creation of SEO-optimized blog posts. The plugin will take a user-provided topic within the WordPress post editor and generate a complete, well-structured, and media-rich article.  
+
+---
+
+## Part 1: Plugin Architecture & Technical Specifications
+**Core Language:** PHP, following WordPress coding standards. Use JavaScript/AJAX for non-blocking UI interactions.  
+
+**Plugin Structure:**
+- Main plugin file: `ai-content-architect.php`  
+- Directories: `/includes`, `/admin`, `/public`, `/assets`  
+- Include a `README.txt` formatted for the WordPress plugin repository  
+
+**Admin Settings Page:**
+- Add a settings page under the **Settings** menu.  
+- Securely store API keys for:  
+  - **Gemini API** (for content generation)  
+  - **Perplexity API** (for topic research)  
+  - **Pexels or Unsplash API** (for royalty-free images)  
+- Use WordPress Settings API with sanitization for secure saving.  
+
+---
+
+## Part 2: User Interface (UI) in the Post Editor
+**Meta Box:**
+- Title: **AI Content Architect**  
+- Fields:  
+  - Text input: "Enter Your Blog Post Topic"  
+  - Button: "Generate Blog Post"  
+  - Status area: Progress updates like *“Step 1/5: Researching keywords...”*  
+
+**AJAX Integration:**
+- Clicking **Generate Blog Post** triggers AJAX to backend.  
+- Process runs in background.  
+- Post editor fields (title, content, featured image) are populated dynamically, no reload required.  
+
+---
+
+## Part 3: Core Generation Workflow (Backend Logic)
+**Workflow when user clicks Generate:**
+
+1. **Receive Topic**: Capture the topic string from the input.  
+
+2. **Long-Tail Keyword Research (Perplexity + Gemini)**  
+   - Step 1: Call **Perplexity API** with the user topic to gather real-time keyword insights.  
+   - Step 2: Pass Perplexity’s response into **Gemini API** with prompt:  
+     > “Based on this Perplexity research data: [Perplexity Response], generate a list of 5 related long-tail keywords for the topic '[User's Topic]'. The primary keyword should be the most relevant. Format as JSON array.”  
+   - Action: Parse response, select the first keyword as **primary keyword**.  
+
+3. **Title & Slug Generation (Gemini)**  
+   - Prompt:  
+     > “Using the primary keyword '[Primary Keyword]', create a compelling, title-cased blog post title.”  
+   - Populate **post title** with result. Slug generated automatically by WordPress.  
+
+4. **Blog Post Outline (Gemini)**  
+   - Prompt:  
+     > “Create a blog post outline for '[Generated Title]'. Include introduction, several H2s, and conclusion. Use these keywords: [All Keywords]. Format as JSON with H2 and H3 keys.”  
+   - Action: Store outline for next step.  
+
+5. **Content Generation (Gemini)**  
+   - Prompt:  
+     > “Write a comprehensive, SEO-optimized blog post using this outline: [JSON Outline]. Ensure the primary keyword '[Primary Keyword]' appears naturally in the first paragraph. Use short paragraphs, bullet points, and mark 2-3 authoritative external links with placeholders [EXTERNAL_LINK: description].”  
+   - Action: Capture generated text.  
+
+6. **Internal & External Linking**  
+   - Internal: Scan existing published posts; if titles match, insert **internal links** (max 2-3).  
+   - External: Replace [EXTERNAL_LINK] placeholders with authoritative sources (Wikipedia, research papers, industry blogs).  
+
+7. **Media Integration (Pexels/Unsplash API)**  
+   - Featured Image: Search using **primary keyword**, download and set as featured image. Use post title as alt text.  
+   - In-post Images: 1–2 additional searches using H2 headings, insert images in content with descriptive alt text.  
+
+8. **Final Population**  
+   - Combine generated text, internal/external links, and images.  
+   - Populate post editor with final HTML.  
+   - Save post as **Draft**.  

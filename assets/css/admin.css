@@ -1,0 +1,296 @@
+/**
+ * AI Content Architect Admin Styles
+ *
+ * @format
+ */
+
+/* Settings Page Styles */
+#aca-prompt-status {
+	background: #f8f9fa;
+	border: 1px solid #e1e4e8;
+}
+
+#aca-prompt-status span {
+	display: inline-block;
+}
+
+.aca-prompt-buttons {
+	margin-top: 10px;
+}
+
+.aca-prompt-buttons .button {
+	margin-right: 10px;
+}
+
+.aca-prompt-buttons .button:last-child {
+	margin-right: 0;
+}
+
+/* Meta Box Styles */
+#aca-meta-box {
+	padding: 0;
+}
+
+.aca-notice {
+	padding: 10px;
+	border-left: 4px solid #ffba00;
+	background: #fff3cd;
+	margin-bottom: 15px;
+	border-radius: 0 4px 4px 0;
+}
+
+.aca-notice-warning {
+	border-left-color: #dc3232;
+	background: #fbeaea;
+}
+
+.aca-notice p {
+	margin: 0 0 10px 0;
+}
+
+.aca-notice p:last-child {
+	margin-bottom: 0;
+}
+
+.aca-input-section {
+	margin-bottom: 15px;
+}
+
+.aca-input-section label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+
+.aca-button-section {
+	margin-bottom: 15px;
+}
+
+#aca-generate-btn {
+	width: 100%;
+	position: relative;
+	height: 40px;
+	font-weight: 600;
+}
+
+.aca-btn-loading .spinner {
+	float: none;
+	margin: 0 5px 0 0;
+	visibility: visible;
+}
+
+/* Status Area Styles */
+#aca-status-area {
+	margin-bottom: 15px;
+	padding: 15px;
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.aca-status-hidden {
+	display: none;
+}
+
+.aca-progress-bar {
+	width: 100%;
+	height: 12px;
+	background: #e0e0e0;
+	border-radius: 6px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.aca-progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, #0073aa, #005a87);
+	width: 0%;
+	transition: width 0.5s ease;
+	border-radius: 6px;
+}
+
+.aca-status-text {
+	font-weight: bold;
+	margin-bottom: 5px;
+	color: #333;
+}
+
+.aca-step-details {
+	font-size: 12px;
+	color: #666;
+	line-height: 1.4;
+}
+
+/* Result Area Styles */
+#aca-result-area {
+	padding: 15px;
+	background: #e7f7e7;
+	border: 1px solid #4caf50;
+	border-radius: 4px;
+	animation: fadeIn 0.3s ease;
+}
+
+.aca-result-hidden {
+	display: none;
+}
+
+#aca-result-area h4 {
+	margin: 0 0 10px 0;
+	color: #2e7d2e;
+	font-size: 14px;
+}
+
+.aca-result-summary {
+	margin-bottom: 15px;
+	font-size: 12px;
+	line-height: 1.6;
+	background: rgba(255, 255, 255, 0.7);
+	padding: 10px;
+	border-radius: 3px;
+}
+
+.aca-result-actions {
+	text-align: left;
+}
+
+.aca-result-actions button {
+	margin-right: 8px;
+	margin-bottom: 5px;
+}
+
+/* Settings Page Styles */
+.aca-info-section {
+	margin-top: 30px;
+	padding: 20px;
+	background: #f9f9f9;
+	border-left: 4px solid #0073aa;
+	border-radius: 0 4px 4px 0;
+}
+
+.aca-info-section h3 {
+	margin-top: 0;
+	color: #0073aa;
+}
+
+.aca-info-section ul {
+	margin: 15px 0;
+	padding-left: 20px;
+}
+
+.aca-info-section li {
+	margin-bottom: 8px;
+	line-height: 1.5;
+}
+
+/* API Key Field Enhancements */
+.aca-toggle-key {
+	margin-left: 10px;
+	vertical-align: top;
+	font-size: 11px;
+	height: 28px;
+	line-height: 26px;
+}
+
+/* Validation Messages */
+.aca-validation-error,
+.aca-validation-warning {
+	display: block;
+	margin-top: 5px;
+	font-size: 12px;
+	font-style: italic;
+	padding: 5px 8px;
+	border-radius: 3px;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.aca-validation-error {
+	color: #dc3232;
+	border-left: 3px solid #dc3232;
+}
+
+.aca-validation-warning {
+	color: #ffba00;
+	border-left: 3px solid #ffba00;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 782px) {
+	.aca-result-actions button {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 8px;
+	}
+
+	#aca-generate-btn {
+		height: 44px;
+		font-size: 16px;
+	}
+
+	.aca-toggle-key {
+		margin-left: 0;
+		margin-top: 5px;
+		display: block;
+		width: auto;
+	}
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.7;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/* Loading States */
+.aca-loading {
+	animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Focus and Hover States */
+#aca-topic-input:focus {
+	border-color: #0073aa;
+	box-shadow: 0 0 0 1px #0073aa;
+}
+
+.aca-result-actions button:hover {
+	transform: translateY(-1px);
+	transition: transform 0.2s ease;
+}
+
+/* Success and Error States */
+.aca-success {
+	border-color: #4caf50 !important;
+	background: #e7f7e7 !important;
+}
+
+.aca-error {
+	border-color: #dc3232 !important;
+	background: #fbeaea !important;
+}
+
+.aca-error .aca-progress-fill {
+	background: #dc3232 !important;
+}
+
+.aca-error .aca-status-text {
+	color: #dc3232 !important;
+}

@@ -41,13 +41,13 @@
 **Google Gemini API Key:**
 
 ```
-AIzaSyCwuOBL349IwyWa71IuzurQfN8ZPOeEjNg
+Gemini api key
 ```
 
 **Pexels API Key:**
 
 ```
-IfEBn6P0lL7AoLMIdypwZsXfa2PEaxmhRHQUzcPnnksKXMMZgogfA388
+Pexel api key
 ```
 
 ### Step 3: Configure Settings

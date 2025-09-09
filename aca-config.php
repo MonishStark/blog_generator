@@ -109,8 +109,8 @@ if (isset($_POST['configure'])) {
 
             <h3>📋 Pre-filled Values (for your reference):</h3>
             <div class="code">
-                <strong>Gemini API Key:</strong> AIzaSyCwuOBL349IwyWa71IuzurQfN8ZPOeEjNg<br>
-                <strong>Pexels API Key:</strong> IfEBn6P0lL7AoLMIdypwZsXfa2PEaxmhRHQUzcPnnksKXMMZgogfA388
+                <strong>Gemini API Key:</strong> gemini_api_key<br>
+                <strong>Pexels API Key:</strong> pexels_api_key
             </div>
         <?php endif; ?>
 
